@@ -7,8 +7,8 @@
     <ProjectGuid>{2317D90F-8017-48B6-9797-04E649C5004A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UtcDateTime</RootNamespace>
-    <AssemblyName>UtcDateTime</AssemblyName>
+    <RootNamespace>Utils</RootNamespace>
+    <AssemblyName>Utils</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

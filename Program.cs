@@ -16,7 +16,7 @@
 */
 using System;
 
-namespace UtcDateTime
+namespace Utils
 {
     class Program
     {
@@ -25,10 +25,8 @@ namespace UtcDateTime
             var utc_now = UtcDateTime.Now;
             var now = DateTime.Now;
 
-            //if (utc_now < now) <- Compiler error because local time and utc time are not compatible
-            //{
-            //    //blah blah
-            //}
+            //utc_now = now;  <- Error: Cannot implicitly convert type 'System.DateTime' to 'UtcDateTime.UtcDateTime'
+            //                   UTC time and local time will be never mixed up!
 
             var utc_now2 = TimeHelper.ToUtcTime(now);
 
@@ -37,7 +35,18 @@ namespace UtcDateTime
 
             Console.WriteLine("now.TimeOfDay = " + now.TimeOfDay);
             Console.WriteLine("utc_now.LocalTimeOfDay = " + utc_now.LocalTimeOfDay);
-            Console.WriteLine("((IDateTime)utc_now).TimeOfDay = " + ((IDateTime)utc_now).TimeOfDay + " //local time in Greenwich(UTC)");
+            Console.WriteLine("((IDateTime)utc_now).TimeOfDay = " + ((IDateTime)utc_now).TimeOfDay + " //(UTC) Coordinated Universal Time");
+
+            Console.WriteLine();
+
+            TimeHelper.SetThreadTimeZone("Tokyo Standard Time");
+            Console.WriteLine("Time in Tokyo = " + utc_now.LocalTimeOfDay);
+
+            TimeHelper.SetThreadTimeZone("GMT Standard Time");
+            Console.WriteLine("Time in London = " + utc_now.LocalTimeOfDay);
+
+            TimeHelper.SetThreadTimeZone("Eastern Standard Time");
+            Console.WriteLine("Time in New York = " + utc_now.LocalTimeOfDay);
 
             Console.ReadKey();
         }

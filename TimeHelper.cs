@@ -17,7 +17,7 @@
 using System;
 using System.Threading;
 
-namespace UtcDateTime
+namespace Utils
 {
     public class TimeHelper
     {

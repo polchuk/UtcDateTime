@@ -18,7 +18,7 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 
-namespace UtcDateTime
+namespace Utils
 {
     public interface IDateTime
     {
